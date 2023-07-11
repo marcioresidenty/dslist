@@ -20,9 +20,12 @@ public class Game {
 	@Column(name= "game_year")//muda o nome da variavel no banco de dados
 	private Integer year;
 	private String genre;
-	private String platform;
+	private String platforms;
+	private Double score;
 	private String imgUrl;
-	private String shortdescription;
+	@Column(columnDefinition = "TEXT") //define no banco como texto e nao string 
+	private String shortDescription;
+	@Column(columnDefinition = "TEXT") //define no banco como texto e nao string 
 	private String longDescription;
 	
 	
@@ -31,17 +34,38 @@ public class Game {
 	}
 
 
-	public Game(Long id, String title, Integer year, String genre, String platform, String imgUrl,
+	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
 			String shortdescription, String longDescription) {
 		
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.platform = platform;
+		this.platforms = platforms;
+		this.score = score;
 		this.imgUrl = imgUrl;
 		this.shortdescription = shortdescription;
 		this.longDescription = longDescription;
+	}
+
+
+	public String getPlatforms() {
+		return platforms;
+	}
+
+
+	public void setPlatform(String platforms) {
+		this.platforms = platforms;
+	}
+
+
+	public Double getScore() {
+		return score;
+	}
+
+
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 
@@ -83,17 +107,6 @@ public class Game {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-
-
-	public String getPatform() {
-		return platform;
-	}
-
-
-	public void setPatform(String platform) {
-		this.platform = platform;
-	}
-
 
 	public String getImgUrl() {
 		return imgUrl;
