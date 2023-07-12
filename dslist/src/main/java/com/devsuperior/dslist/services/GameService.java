@@ -18,7 +18,7 @@ public class GameService {
 	@Autowired //injeta uma instacia do GameRepository, componente do sistema 
 	private GameRepository gameRepository;
 	
-	//Busca por id
+	//Busc por id
 	@Transactional(readOnly = true)
 	public GameDTO findById(Long id) {
 		Game result = gameRepository.findById(id).get();
